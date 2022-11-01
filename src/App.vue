@@ -26,6 +26,9 @@
       </div>
 
       <v-spacer></v-spacer>
+      <SearchProductsInput />
+      <v-btn>Search Bar Here</v-btn>
+      <v-spacer></v-spacer>
 
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -45,9 +48,10 @@
 
 <script>
 
+import SearchProductsInput from "@/components/inputs/SearchProductsInput";
 export default {
   name: 'App',
-
+  components: {SearchProductsInput},
   data: () => ({
     //
   }),

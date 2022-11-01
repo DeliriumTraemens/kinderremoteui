@@ -21,11 +21,17 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     export default {
         name: "SearchProductsInput",
         data()  {
             return{
                 searchName: ''
+            }
+        },
+        methods: {
+            doSearch(){
+
             }
         }
     }

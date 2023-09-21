@@ -1,8 +1,8 @@
 <template>
-    <v-container>
+    <div>
         <div>Vitrine</div>
         <v-row>
-            <v-col cols="2">
+            <v-col cols="3">
                 <v-card class="mb-3">
                 <div>CATALOG</div>
 
@@ -21,21 +21,23 @@
             <v-col cols="7">
             <ProductList />
             </v-col>
-            <v-col>
+            <v-col cols="2">
 <!--                <BrowserTrainerLayout1 />-->
 <!--                <ListSwitcherTrain />-->
+                <ManufacturerList />
             </v-col>
         </v-row>
-    </v-container>
+    </div>
 </template>
 
 <script>
     import {mapGetters, mapActions} from 'vuex';
     import CatBrowserLite from "@/components/browsers/CatBrowserLite";
     import ProductList from "@/Lists/ProductList";
+    import ManufacturerList from "@/Lists/ManufacturerList";
     export default {
         name: "Vitrine",
-        components: {CatBrowserLite, ProductList},
+        components: {ManufacturerList, CatBrowserLite, ProductList},
         data() {
             return{
                 categoryList:[{}]

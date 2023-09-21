@@ -1,5 +1,6 @@
 <template>
-    <v-card outlined shaped class="mb-4" style="max-width: 300px;margin: 4px; padding: 3px">
+<!--    outlined-->
+    <v-card  shaped  elevation="3" class="mb-4" style="max-width: 300px;margin: 4px; padding: 3px">
         <v-img
 
                 height="200px"
@@ -21,18 +22,36 @@
                 </h5>
             </div>
         </v-card-subtitle>
-        <v-card-text>
+        <v-card-text>/
            <h3>{{item.price}} Rub </h3>
         </v-card-text>
+        <v-card-actions>
+<!--      -->
+        <v-btn @click="show_details" x-small color="warning" class="mr-2">Show Details</v-btn>
+        <v-btn>Order</v-btn>
+        </v-card-actions>
     </v-card>
 </template>
 
 <script>
+    import {mapGetters,mapMutations,mapActions} from 'vuex'
     export default {
         name: "ItemCard",
+        data: () => ({
+            //
+        }),
         props: {
             item:{}
         },
+        methods: {
+            ...mapActions(['setCurrentProductAction']),
+            show_details(){
+                alert(this.item.name)
+                this.$store.dispatch('setCurrentProductAction',this.item)
+                this.$router.push('/ProductDetails')
+            }
+            }
+
     }
 </script>
 

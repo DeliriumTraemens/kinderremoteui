@@ -5,6 +5,8 @@
             <div v-for="product in getProductsList" :key="product.id">
                     <ItemCard :item="product"/>
             </div>
+
+
         </v-row>
     </div>
 </template>

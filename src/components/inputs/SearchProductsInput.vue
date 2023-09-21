@@ -12,6 +12,7 @@
             <v-col>
                 <v-btn
                 color="indigo"
+                @click="doSearch"
                 >Search</v-btn>
 
             </v-col>
@@ -30,7 +31,9 @@
             }
         },
         methods: {
+            ...mapActions(['searchProductAction']),
             doSearch(){
+                this.$store.dispatch('searchProductAction', this.searchName)
 
             }
         }

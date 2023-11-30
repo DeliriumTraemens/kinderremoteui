@@ -6,6 +6,7 @@ export default {
         //добавить булевый флаг категория/производитель для фильтра по поиску и его геттер читать из мануфЛиста
         categoryFilter: '',
         currentCategory: '',
+        // currentProduct: {},
         currentProduct: {},
         currentManufacturer: '',
         request: {
@@ -231,8 +232,30 @@ export default {
                 context.commit('manufacturersListMutation', res.data.manufacturerSet)
             })
         },
+
+            // context.commit('currentProductMutation',arg)
+            // alert(context.getters.getCurrentProduct.id)
+            // const prodId = context.getters.getCurrentProduct.id
         setCurrentProductAction(context,arg){
-            context.commit('currentProductMutation',arg)
+            const prodId = arg
+
+            axios.get(urls.INITIAL_URL, {
+                params: {
+                    serviceName: 'ProdService',
+                    methodName: 'findProductById',
+                    // prodId: Number(prodId)
+                    prodId: prodId
+                }
+            }).then(res => {
+                console.log('Find Product By Id ProductDetailsDto |')
+                console.log(res.data)
+                context.commit('currentProductMutation', res.data);
+                console.log('  |context.getters.getCurrentProduct|  ')
+                console.log(context.getters.getCurrentProduct)
+
+                // context.commit('currentProductMutation', res.data);
+
+            })
         },
         selectedProductIdAction() {
         },

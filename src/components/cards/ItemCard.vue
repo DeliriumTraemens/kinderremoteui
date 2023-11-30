@@ -8,6 +8,7 @@
         />
         <v-card-title class="d-inline-block text-truncate"
                       style="max-width: 290px;">
+            {{item.id}}
             {{item.name}}
         </v-card-title>
         <v-card-subtitle>
@@ -46,8 +47,8 @@
         methods: {
             ...mapActions(['setCurrentProductAction']),
             show_details(){
-                alert(this.item.name)
-                this.$store.dispatch('setCurrentProductAction',this.item)
+                // alert(this.item.name)
+                this.$store.dispatch('setCurrentProductAction',this.item.id)
                 this.$router.push('/ProductDetails')
             }
             }

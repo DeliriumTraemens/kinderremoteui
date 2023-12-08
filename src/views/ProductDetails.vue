@@ -1,19 +1,30 @@
 <template>
     <v-container>
-
         <v-row>
-            <!--            -->
+            <v-col align-self="center">
+        <h1 class="mt-6">{{getCurrentProduct.name}}</h1>
 
+            </v-col>
         </v-row>
-        <v-row>
-            <v-col cols="7">
-                <v-row>
-                    <ImageCaroussel :pick="getCurrentProduct.image" :images="getCurrentProduct.images"/>
-                </v-row>
-                <v-row class="mt-6">
-                    <h5>{{getCurrentProduct.description}}</h5>
+        <v-row class="mt-6">
+            <v-col cols="6">
 
-                </v-row >
+<!--                <v-row>-->
+                    <v-col>
+                        <PhotoSlider
+                                :mainImage="getCurrentProduct.image"
+                                :imageArray="getCurrentProduct.images"
+                        />
+                    </v-col>
+<!--                </v-row>-->
+                <v-row class="mt-6">
+                    <v-col>
+                        <h4>Description</h4>
+                        <h3>{{getCurrentProduct.name}}</h3>
+                        <h4>{{getCurrentProduct.description}}</h4>
+                    </v-col>
+
+                </v-row>
                 <v-row>
                     <div class="mt-6">DETAILS New</div>
                     <div>
@@ -31,65 +42,28 @@
                 <!--                />-->
 
             </v-col>
-            <v-col cols="5">
+            <v-col cols="3">
+                <ProductDetailsInfo :product="getCurrentProduct"/>
 
-                <v-card>
-                    <v-card-title>
-                        <h3>Prod Id {{getCurrentProduct.id}}</h3><br>-->
-                        <h3>{{getCurrentProduct.name}}</h3>
-                        <h4>Price: {{getCurrentProduct.price}}</h4>
-                        <p></p>
-                        <v-card-subtitle>
-                            <div v-if="getCurrentProduct.manName">
-                                Manufacturer {{ getCurrentProduct.manName }}
-                            </div>
-                            <div v-else-if="getCurrentProduct.manufacturer && getCurrentProduct.manufacturer.name">
-                                Manufacturer {{ getCurrentProduct.manufacturer.name }}
-                            </div>
-                            <div v-else>
-                                No manufacturer name available
-                            </div>
-                        </v-card-subtitle>
-
-
-                        <!--                        -->
-
-                    </v-card-title>
-                    <v-card-text>
-                    </v-card-text>
-                </v-card>
                 <v-card>
                     <v-card-title>
                         <!--                        {{getCurrentProduct.groupAttribute}}-->
                     </v-card-title>
                 </v-card>
                 <v-card>
-                    <v-card-title>
-                        <h4>
-                            <span> {{getCurrentProduct.groupAttribute.groupName}}</span>
-                        </h4>
-                        <h5>
 
-                            <ul>
-                                <li v-for="atr in getCurrentProduct.groupAttribute.attributes">
-                                    <span> {{atr.type}}</span> : <span>{{atr.value}}</span>
-                                </li>
-                            </ul>
-                        </h5>
-                    </v-card-title>
-                    <v-card-subtitle>
-                        <h5>
-                        </h5>
-                    </v-card-subtitle>
                     <v-card-actions>
-                        <v-btn> Order NOW </v-btn>
+                        <v-btn> Order NOW</v-btn>
                     </v-card-actions>
                 </v-card>
-                <!--                <h1>DETAILS</h1>-->
-                <!--                <h3>{{getCurrentProduct}}</h3>-->
+
 
             </v-col>
-            <!--                       height="400px"-->
+            <v-col cols="3">
+                <h3>Price and Availability</h3>
+            <ProductPriceAndOrder :product="getCurrentProduct"/>
+            </v-col>
+
 
         </v-row>
 
@@ -100,10 +74,14 @@
 <script>
     import {mapGetters, mapMutations, mapActions} from 'vuex'
     import ImageCaroussel from "@/components/ImageCaroussel/ImageCaroussel";
+    import PhotoGallery from "@/components/ImageCaroussel/PhotoGallery";
+    import PhotoSlider from "@/components/ImageCaroussel/PhotoSlider";
+    import ProductDetailsInfo from "@/components/cards/ProductDetailsInfo";
+    import ProductPriceAndOrder from "@/components/cards/ProductPriceAndOrder";
 
     export default {
         name: "ProductDetails",
-        components: {ImageCaroussel},
+        components: {ProductPriceAndOrder, ProductDetailsInfo, PhotoSlider, PhotoGallery, ImageCaroussel},
         computed: {
             // getCurrentObject() {
             //     return this.$store.getters.getCurrentObject;

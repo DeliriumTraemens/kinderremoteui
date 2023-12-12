@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-container>
         <v-img :src="'http://localhost:9293/images/' + currentImage.image" height="500px" contain></v-img>
         <div>
             <v-btn icon @click="previousImage">
@@ -9,7 +9,7 @@
                 <v-icon>mdi-chevron-right</v-icon>
             </v-btn>
         </div>
-    </div>
+    </v-container>
 </template>
 
 <script>

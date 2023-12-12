@@ -7,8 +7,8 @@
                 </v-btn>
             </v-col>
 
-            <v-col cols="8" sm="9" md="6" align-self="center">
-                <v-img :src="'http://localhost:9293/images/' + currentImage.image" height="500px" contain>IMAGE</v-img>
+            <v-col cols="6" sm="9" md="6" align-self="center">
+                <v-img :src="'http://localhost:9293/images/' + currentImage.image" height="500px" contain></v-img>
             </v-col>
 
             <v-col cols="2" class="col-next">
@@ -17,9 +17,11 @@
                 </v-btn>
             </v-col>
         </v-row>
+        {{getCurrentProduct}}
     </v-container>
 </template>
 <script>
+    import {mapGetters, mapMutations, mapActions} from 'vuex'
     export default {
         name: "PhotoSlider",
         props: {
@@ -40,7 +42,9 @@
         computed: {
             currentImage() {
                 return this.imageArray[this.currentIndex];
-            }
+                // return this.getCurrentProduct.images[this.currentIndex];
+            },
+            ...mapGetters(['getCurrentProduct'])
         },
         methods: {
             previousImage() {
@@ -73,7 +77,7 @@
         align-items: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        z-index: 2;
+        /*z-index: 2;*/
     }
 
     .arrow-icon {

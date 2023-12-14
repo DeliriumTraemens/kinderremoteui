@@ -146,12 +146,12 @@ export default {
         // serviceName:'UtilityService',
         // methodName:'createRandomizedProductSet'
 
-        productsListAction(context, arg) {
+        async productsListAction(context, arg) {
             console.log('--- arg ---')
             console.log(arg)
-            context.commit('currentCategoryMutation', arg)
-            context.commit('categoryFilterMutation', 'true')
-            axios.get(urls.INITIAL_URL, {
+            await context.commit('currentCategoryMutation', arg)
+            await context.commit('categoryFilterMutation', 'true')
+            await axios.get(urls.INITIAL_URL, {
                 params: {
                     serviceName: 'ProdService',
                     methodName: 'getProdByCatId',

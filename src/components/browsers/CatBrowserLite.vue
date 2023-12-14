@@ -61,12 +61,14 @@
             methods: {
                 // ...mapActions(['setCurrentProdList', 'setSelectedCategoryId', 'setTargetCategoryId', 'editCategoryIerarchy','deleteCategory']),
 
-                 nodeClicked(nodes){
+               async  nodeClicked(nodes){
                     this.expanded = !this.expanded
                     // console.log(nodes)
-                         this.$store.dispatch('productsListAction',nodes.id)
+                  await       this.$store.dispatch('productsListAction',nodes.id);
+                     await this.$router.push('/');
 
-                },
+
+                 },
                 // catRemove(id){
                 //     this.$store.dispatch('deleteCategory', id)
                 //     // alert(id)

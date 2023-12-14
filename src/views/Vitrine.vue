@@ -1,23 +1,23 @@
 <template>
-    <div>
+    <v-container>
         <div>Vitrine</div>
         <v-row>
-            <v-col cols="3">
-                <v-card class="mb-3">
-                <div>CATALOG</div>
+<!--            <v-col cols="3">-->
+<!--                <v-card class="mb-3">-->
+<!--                <div>CATALOG</div>-->
 
-                </v-card>
-                <v-card class="overflow-y-auto"
-                        height="500px">
-                    <CatBrowserLite v-for="(nodes,idx) in getCategoryList"
-                                    :key="idx"
-                                    :nodes="nodes" />
-                </v-card>
+<!--                </v-card>-->
+<!--&lt;!&ndash;                <v-card class="overflow-y-auto"&ndash;&gt;-->
+<!--&lt;!&ndash;                        height="500px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <CatBrowserLite v-for="(nodes,idx) in getCategoryList"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    :key="idx"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    :nodes="nodes" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </v-card>&ndash;&gt;-->
 
-<!--                <ManufacturersFilter/>-->
-                <!--                    <CheckBoxTrainer />-->
+<!--&lt;!&ndash;                <ManufacturersFilter/>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <CheckBoxTrainer />&ndash;&gt;-->
 
-            </v-col>
+<!--            </v-col>-->
             <v-col cols="7">
             <ProductList />
             </v-col>
@@ -27,7 +27,7 @@
                 <ManufacturerList />
             </v-col>
         </v-row>
-    </div>
+    </v-container>
 </template>
 
 <script>

@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import Vitrine from "@/views/Vitrine";
 import ProductDetails from "../views/ProductDetails";
 import VitrineNew from "@/views/VitrineNew";
+import CategoryVitrineList from "@/views/CategoryVitrineList";
 
 Vue.use(VueRouter)
 
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Vitrine
+  },
+  {
+    path: '/gategories',
+    name: 'CategoryList',
+    component: CategoryVitrineList
   },
 
   {

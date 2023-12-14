@@ -1,6 +1,9 @@
 <template>
-    <v-container fluid>
-        <v-row justify="center">
+    <v-container >
+            <div style="margin-top: 10px">
+               HHH {{currentImage.image}}
+            </div>
+        <v-row justify="center" >
             <v-col cols="2" class="col-prev">
                 <v-btn class="prev-btn" icon @click="previousImage">
                     <v-icon class="arrow-icon">mdi-chevron-left</v-icon>
@@ -8,7 +11,7 @@
             </v-col>
 
             <v-col cols="6" sm="9" md="6" align-self="center">
-                <v-img :src="'http://localhost:9293/images/' + currentImage.image" height="500px" contain></v-img>
+                <v-img :src="'http://localhost:9293/images/' + currentImage.image  + '?' + Math.random()" height="500px" contain></v-img>
             </v-col>
 
             <v-col cols="2" class="col-next">
@@ -17,7 +20,7 @@
                 </v-btn>
             </v-col>
         </v-row>
-        {{getCurrentProduct}}
+
     </v-container>
 </template>
 <script>

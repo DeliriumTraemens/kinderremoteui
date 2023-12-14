@@ -5,7 +5,7 @@
                 <h1 class="mt-6">{{getCurrentProduct.name}}</h1>
             </v-col>
         </v-row>
-        <v-row class="mt-6">
+        <v-row class="mt-8">
             <v-col cols="6">
                     <PhotoSlider
                             :mainImage="getCurrentProduct.image"

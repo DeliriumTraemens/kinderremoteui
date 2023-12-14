@@ -1,21 +1,21 @@
 <template>
     <v-card>
         <v-card-title>
-            <h3>Product Info</h3>
+            <h3>ProductDetailsInfo</h3>
         </v-card-title>
         <v-card>
             <div v-if="getCurrentProduct.manName">
-                Made by <span> <h3>{{ getCurrentProduct.manName }}</h3> </span>
+              <h3>  Made by</h3> <span> <h3>{{ getCurrentProduct.manName }}</h3> </span>
             </div>
             <div v-else-if="getCurrentProduct.manufacturer && getCurrentProduct.manufacturer.name">
-                Made by <span> <h3> {{ getCurrentProduct.manufacturer.name }} </h3> </span>
+                <h3>  Made by</h3> <span> <h2> {{ getCurrentProduct.manufacturer.name }} </h2> </span>
             </div>
 
             <div v-else>
                 No manufacturer name available
             </div>
             <v-card-subtitle>
-                <v-img :src="'http://localhost:9293/images/' + getCurrentProduct.manufacturer.image" height="100px" contain>IMAGE</v-img>
+                <v-img :src="'http://localhost:9293/images/' + getCurrentProduct.manufacturer.image" height="100px" contain></v-img>
 
             </v-card-subtitle>
         </v-card>

@@ -19,7 +19,8 @@
                             v-else
                             style="font-size:10px; color: mediumblue"
                     > &#9671; </span>
-                {{ nodes.name }}' '{{nodes.id}}
+                {{ nodes.name }}'
+<!--                '{{nodes.id}}-->
             </div>
             <!--            <strong>{{nodes.id}}</strong>-->
         </v-layout>

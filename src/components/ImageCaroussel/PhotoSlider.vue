@@ -1,8 +1,8 @@
 <template>
     <v-container >
-            <div style="margin-top: 10px">
-               HHH {{currentImage.image}}
-            </div>
+<!--            <div style="margin-top: 10px">-->
+<!--               HHH {{currentImage.image}}-->
+<!--            </div>-->
         <v-row justify="center" >
             <v-col cols="2" class="col-prev">
                 <v-btn class="prev-btn" icon @click="previousImage">
@@ -10,7 +10,7 @@
                 </v-btn>
             </v-col>
 
-            <v-col cols="6" sm="9" md="6" align-self="center">
+            <v-col cols="8" sm="9" md="6" align-self="center">
                 <v-img :src="'http://localhost:9293/images/' + currentImage.image  + '?' + Math.random()" height="500px" contain></v-img>
             </v-col>
 
@@ -86,6 +86,7 @@
     .arrow-icon {
         /*font-size: 32px;*/
         font-size: 52px;
+
 
     }
 

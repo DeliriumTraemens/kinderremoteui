@@ -46,10 +46,10 @@
         },
         methods: {
             ...mapActions(['setCurrentProductAction']),
-            show_details(){
+            async show_details(){
                 // alert(this.item.name)
-                this.$store.dispatch('setCurrentProductAction',this.item.id)
-                this.$router.push('/ProductDetails')
+                await this.$store.dispatch('setCurrentProductAction',this.item.id)
+                await this.$router.push('/ProductDetails')
             }
             }
 

@@ -38,7 +38,7 @@
 
             <v-spacer></v-spacer>
             <SearchProductsInput/>
-            <v-btn>Search Bar Here</v-btn>
+            <v-btn @click="goHome">Go Home</v-btn>
             <v-spacer></v-spacer>
             <v-btn @click="show_vitrine" x-small color="warning" class="mr-2">Vitrine New</v-btn>
             <v-btn
@@ -74,6 +74,9 @@
         methods: {
             show_vitrine() {
                 this.$router.push('/vitrinenew')
+            },
+            goHome(){
+                this.$router.push('/')
             }
         },
         async created(){

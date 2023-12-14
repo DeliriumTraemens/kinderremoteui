@@ -236,10 +236,10 @@ export default {
             // context.commit('currentProductMutation',arg)
             // alert(context.getters.getCurrentProduct.id)
             // const prodId = context.getters.getCurrentProduct.id
-        setCurrentProductAction(context,arg){
+       async setCurrentProductAction(context,arg){
             const prodId = arg
 
-            axios.get(urls.INITIAL_URL, {
+            await axios.get(urls.INITIAL_URL, {
                 params: {
                     serviceName: 'ProdService',
                     methodName: 'findProductById',
@@ -256,6 +256,7 @@ export default {
                 // context.commit('currentProductMutation', res.data);
 
             })
+            // this.$router.push('/ProductDetails')
         },
         selectedProductIdAction() {
         },

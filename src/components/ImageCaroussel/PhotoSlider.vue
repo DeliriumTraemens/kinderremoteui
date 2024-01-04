@@ -1,30 +1,29 @@
 <template>
-    <v-container >
-<!--            <div style="margin-top: 10px">-->
-<!--               HHH {{currentImage.image}}-->
-<!--            </div>-->
-        <v-row justify="center" >
-            <v-col cols="2" class="col-prev">
+    <v-container>
+        <v-row justify="center" class="row1">
+            <v-col cols="1" class="col-prev">
                 <v-btn class="prev-btn" icon @click="previousImage">
                     <v-icon class="arrow-icon">mdi-chevron-left</v-icon>
                 </v-btn>
             </v-col>
 
-            <v-col cols="8" sm="9" md="6" align-self="center">
-                <v-img :src="'http://localhost:9293/images/' + currentImage.image  + '?' + Math.random()" height="500px" contain></v-img>
+            <v-col cols="8" sm="9" md="10" align-self="center">
+<!--                <v-img :src="'http://localhost:9293/images/' + currentImage.image  + '?' + Math.random()"  ></v-img>-->
+                <v-img :src="getImageUrl() + currentImage.image  + '?' + Math.random()"  ></v-img>
             </v-col>
 
-            <v-col cols="2" class="col-next">
+            <v-col cols="1" class="col-next">
                 <v-btn class="next-btn" icon @click="nextImage">
                     <v-icon class="arrow-icon">mdi-chevron-right</v-icon>
                 </v-btn>
             </v-col>
         </v-row>
-
     </v-container>
 </template>
 <script>
     import {mapGetters, mapMutations, mapActions} from 'vuex'
+    import urls from "@/axiosEtc/urls/urls";
+
     export default {
         name: "PhotoSlider",
         props: {
@@ -50,6 +49,9 @@
             ...mapGetters(['getCurrentProduct'])
         },
         methods: {
+            getImageUrl(){
+                return urls.PICTURE_LOCAL
+            },
             previousImage() {
                 this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.imageArray.length - 1;
             },
@@ -93,5 +95,17 @@
     .prev-btn:hover,
     .next-btn:hover {
         background-color: rgba(229, 46, 46, 0.8);
+    }
+
+    #border2{
+        background-color: #a7a78c;
+        max-height: 600px;
+        border: 2px;
+        border-color: black;
+        margin-left: 4px;
+    }
+    .row1{
+        max-height: 800px;
+        /*background-color: #ee7c2a;*/
     }
 </style>

@@ -1,24 +1,5 @@
 <template>
     <v-app>
-        <v-navigation-drawer app permanent>
-            <v-container>
-            <v-row>
-                <v-col cols="12" align-self="top">
-                    <div>
-                        <h2>HEADER</h2>
-                        <v-card class="overflow-y-auto"
-                                height="500px">
-                            <CatBrowserLite v-for="(nodes,idx) in getCategoryList"
-                                            :key="idx"
-                                            :nodes="nodes" />
-                        </v-card>
-                    </div>
-                </v-col>
-            </v-row>
-
-            </v-container>
-            <!-- Здесь разместите содержимое постоянной боковой панели -->
-        </v-navigation-drawer>
         <v-app-bar
                 app
                 color="orange"
@@ -37,8 +18,9 @@
             </div>
 
             <v-spacer></v-spacer>
+            <v-btn @click="goHome">Go Back</v-btn>
+            <v-spacer></v-spacer>
             <SearchProductsInput/>
-            <v-btn @click="goHome">Go Home</v-btn>
             <v-spacer></v-spacer>
             <v-btn @click="show_vitrine" x-small color="warning" class="mr-2">Vitrine New</v-btn>
             <v-btn
@@ -50,6 +32,30 @@
                 <v-icon>mdi-open-in-new</v-icon>
             </v-btn>
         </v-app-bar>
+        <v-navigation-drawer app permanent>
+            <v-container>
+                <v-row>
+                    <v-col cols="12" align-self="top">
+                        <div>
+                            <h2>HEADER</h2>
+                            <v-card class="overflow-y-auto"
+                                    height="500px">
+                                <CatBrowserLite v-for="(nodes,idx) in getCategoryList"
+                                                :key="idx"
+                                                :nodes="nodes"/>
+                            </v-card>
+                            <v-card>
+                                <ManufacturerList/>
+
+                            </v-card>
+                        </div>
+                    </v-col>
+                </v-row>
+
+            </v-container>
+            <!-- Здесь разместите содержимое постоянной боковой панели -->
+        </v-navigation-drawer>
+
         <v-main>
             <router-view/>
         </v-main>
@@ -60,26 +66,28 @@
 
     import SearchProductsInput from "@/components/inputs/SearchProductsInput";
     import CatBrowserLite from "@/components/browsers/CatBrowserLite";
+    import ManufacturerList from "@/Lists/ManufacturerList";
 
     export default {
         name: 'App',
-        components: {CatBrowserLite, SearchProductsInput},
+        components: {ManufacturerList, CatBrowserLite, SearchProductsInput},
         data: () => ({
             //
         }),
 
-        computed:{
+        computed: {
             ...mapGetters(['getCategoryList', 'getProductsList'])
         },
         methods: {
             show_vitrine() {
-                this.$router.push('/vitrinenew')
+                this.$router.push('/detailsai')
+                // this.$router.push('/vitrinenew')
             },
-            goHome(){
+            goHome() {
                 this.$router.push('/')
             }
         },
-        async created(){
+        async created() {
             //        requestFor CategoryList - Catalog
             //        ProductRandomList
             //

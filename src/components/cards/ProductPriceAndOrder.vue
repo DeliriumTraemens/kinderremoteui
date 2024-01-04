@@ -3,6 +3,9 @@
         <v-card-title>
             <h3>Price: {{product.price}} rub</h3>
         </v-card-title>
+        <v-card-actions>
+            <v-btn small block color="warning">Add to Cart</v-btn>
+        </v-card-actions>
     </v-card>
     
 </template>

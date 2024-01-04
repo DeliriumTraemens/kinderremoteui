@@ -14,18 +14,18 @@
 <!--&lt;!&ndash;                                    :nodes="nodes" />&ndash;&gt;-->
 <!--&lt;!&ndash;                </v-card>&ndash;&gt;-->
 
-<!--&lt;!&ndash;                <ManufacturersFilter/>&ndash;&gt;-->
+<!--                <ManufacturersFilter/>-->
 <!--                &lt;!&ndash;                    <CheckBoxTrainer />&ndash;&gt;-->
 
 <!--            </v-col>-->
-            <v-col cols="7">
+            <v-col cols="12">
             <ProductList />
             </v-col>
-            <v-col cols="2">
-<!--                <BrowserTrainerLayout1 />-->
-<!--                <ListSwitcherTrain />-->
-                <ManufacturerList />
-            </v-col>
+<!--            <v-col cols="2" >-->
+<!--&lt;!&ndash;                <BrowserTrainerLayout1 />&ndash;&gt;-->
+<!--&lt;!&ndash;                <ListSwitcherTrain />&ndash;&gt;-->
+<!--                <ManufacturerList />-->
+<!--            </v-col>-->
         </v-row>
     </v-container>
 </template>

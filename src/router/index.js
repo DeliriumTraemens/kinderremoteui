@@ -5,6 +5,7 @@ import Vitrine from "@/views/Vitrine";
 import ProductDetails from "../views/ProductDetails";
 import VitrineNew from "@/views/VitrineNew";
 import CategoryVitrineList from "@/views/CategoryVitrineList";
+import ProductDetailsAI from "@/views/ProductDetailsAI";
 
 Vue.use(VueRouter)
 
@@ -35,9 +36,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path:'/vitrinenew',
-    name:'vitrineNew',
-    component:VitrineNew
+    path:'/detailsai',
+    name:'details_ai',
+    component:ProductDetailsAI,
+    // component:VitrineNew
   }
 ]
 

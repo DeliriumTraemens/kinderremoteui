@@ -1,14 +1,13 @@
 <template>
 <!--    outlined-->
-    <v-card  shaped  elevation="3" class="mb-4" style="max-width: 300px;margin: 4px; padding: 3px">
+    <v-card  shaped  elevation="5" class="mb-4" style="max-width: 250px;  margin: 4px; padding: 6px">
         <v-img
-
                 height="200px"
                 :src="'http://localhost:9293/images/'+item.image"
         />
         <v-card-title class="d-inline-block text-truncate"
-                      style="max-width: 290px;">
-            {{item.id}}
+                      style="max-width: 245px;">
+<!--            {{item.id}}-->
             {{item.name}}
         </v-card-title>
         <v-card-subtitle>
@@ -23,13 +22,13 @@
                 </h5>
             </div>
         </v-card-subtitle>
-        <v-card-text>/
+        <v-card-text>
            <h3>{{item.price}} Rub </h3>
         </v-card-text>
         <v-card-actions>
 <!--      -->
         <v-btn @click="show_details" x-small color="warning" class="mr-2">Show Details</v-btn>
-        <v-btn>Order</v-btn>
+        <v-btn x-small color="warning">Order</v-btn>
         </v-card-actions>
     </v-card>
 </template>

@@ -1,24 +1,9 @@
 <template>
     <v-card>
+            <h6>ProductDetailsInfo</h6>
         <v-card-title>
-            <h3>ProductDetailsInfo</h3>
         </v-card-title>
-        <v-card>
-            <div v-if="getCurrentProduct.manName">
-              <h3>  Made by</h3> <span> <h3>{{ getCurrentProduct.manName }}</h3> </span>
-            </div>
-            <div v-else-if="getCurrentProduct.manufacturer && getCurrentProduct.manufacturer.name">
-                <h3>  Made by</h3> <span> <h2> {{ getCurrentProduct.manufacturer.name }} </h2> </span>
-            </div>
-
-            <div v-else>
-                No manufacturer name available
-            </div>
-            <v-card-subtitle>
-                <v-img :src="'http://localhost:9293/images/' + getCurrentProduct.manufacturer.image" height="100px" contain></v-img>
-
-            </v-card-subtitle>
-        </v-card>
+        <ManufecturerDisplay :get-current-product="getCurrentProduct"/>
         <v-card>
             <v-card-title>
                 <h4>
@@ -71,10 +56,12 @@
 </template>
 
 <script>
-    import {mapGetters, mapMutations, mapActions} from 'vuex'
+    import {mapGetters} from 'vuex'
+    import ManufecturerDisplay from "@/components/cards/ManufecturerDisplay";
 
     export default {
         name: "ProductDetailsInfo",
+        components: {ManufecturerDisplay},
         props: {
             product: {
                 type: Object,
@@ -88,6 +75,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

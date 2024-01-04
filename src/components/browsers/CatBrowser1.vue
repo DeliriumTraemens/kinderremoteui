@@ -101,6 +101,7 @@
 
 <style scoped>
     .node {
+        /*cursor: pointer;*/
         border-top: 1px solid;
         border-left: 1px solid;
         border-top-left-radius: 4px;
@@ -115,6 +116,7 @@
     }
 
     .lay1{
+
         padding-top: 3px;
         max-height:30px;
         line-height: 1.2;

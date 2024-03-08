@@ -1,8 +1,15 @@
 import axios from 'axios'
 import urls from "@/axiosEtc/urls/urls";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     state: {
+        sessionId: {
+            date: null,
+            browser: '',
+            uuid: null
+        },
+        
         //добавить булевый флаг категория/производитель для фильтра по поиску и его геттер читать из мануфЛиста
         categoryFilter: '',
         currentCategory: '',
@@ -23,6 +30,8 @@ export default {
         searchName: ''
     },
     getters: {
+        getSessionId: (state) => state.sessionId,
+
         getCategoryFilter(state){
             return state.categoryFilter
         },
@@ -61,6 +70,18 @@ export default {
         }
     },
     mutations: {
+        setDate(state){
+            state.sessionId.date =new Date().toISOString();
+        },
+
+        setBrowser(state, browser){
+            state.sessionId.browser=browser;
+        },
+
+        setUUID(state, uuid) {
+            state.sessionId.uuid = uuid;
+        },
+
         categoryFilterMutation(state,arg){
             state.categoryFilter=arg
         },
@@ -105,6 +126,42 @@ export default {
         }
     },
     actions: {
+        // async initializeSession({commit}){
+        async initializeSession(context){
+            const SessionUuid=uuidv4()
+                // alert(localStorage.getItem('sessionId.uuid'))
+            if(localStorage.getItem('sessionId.uuid')===null){
+                localStorage.setItem('sessionId.uuid', SessionUuid)
+            }
+               await context.commit('setUUID', localStorage.getItem('sessionId.uuid'));
+            await context.commit('setDate');
+            await context.commit('setBrowser', window.navigator.userAgent);
+
+        },
+            // else
+            // // await localStorage.setItem('sessionId', SessionId)
+            // await commit('setDate');
+            //
+            // await commit('setBrowser', window.navigator.userAgent);
+            // await commit('setUUID', SessionUuid);
+            // await commit('setUUID', SessionId);
+
+        //Send primary authorithy to server
+        async sendPrimaryAuthorythy(context){
+            // await localStorage.setItem('sessionId',context.state.sessionId.uuid )
+            const session = context.state.sessionId.uuid;
+            const sd = new FormData();
+            // sd.append('localSessionId', localStorage.getItem('sessionId.uuid'))
+            sd.append('localSessionId', context.getters.getSessionId.uuid)
+            await axios.post(urls.INITIAL_URL+'/authority/noname', sd,{
+                maxContentLength: 0,
+                maxBodyLength: 0
+            }) .then(res=>{
+                //SET RECIEVED DATA HERE
+                console.log(res)
+            })
+        },
+
         categoryFilterAction(context, arg){
             context.commit('categoryFilterMutation', arg)
         },

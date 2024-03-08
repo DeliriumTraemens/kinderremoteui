@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import category from "@/store/modules/category";
 import products from "@/store/modules/products";
 import mainstore from "@/store/modules/mainstore";
-
+import authority from "@/store/modules/authority";
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,6 +12,7 @@ export default new Vuex.Store({
   modules: {
     mainstore,
     category,
-    products
+    products,
+    authority
   }
 })

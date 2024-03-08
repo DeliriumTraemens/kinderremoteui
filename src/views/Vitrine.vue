@@ -1,6 +1,9 @@
 <template>
     <v-container>
         <div>Vitrine</div>
+        <div>
+          SESSION  {{getSessionId}}
+        </div>
         <v-row>
 <!--            <v-col cols="3">-->
 <!--                <v-card class="mb-3">-->
@@ -44,7 +47,7 @@
             }
         },
         computed:{
-            ...mapGetters(['getCategoryList', 'getProductsList'])
+            ...mapGetters(['getCategoryList', 'getProductsList','getSessionId'])
         },
         methods: {
             ...mapActions(['categoryListAction', 'initialProductList']),

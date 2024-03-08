@@ -91,8 +91,10 @@
             //        requestFor CategoryList - Catalog
             //        ProductRandomList
             //
+            await this.$store.dispatch('initializeSession');
             await this.$store.dispatch('categoryListAction');
-            await this.$store.dispatch('initialProductList')
+            await this.$store.dispatch('initialProductList');
+            await this.$store.dispatch('sendPrimaryAuthorythy')
         }
     };
 </script>
